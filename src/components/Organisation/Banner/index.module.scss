@@ -56,14 +56,17 @@
 	}
 
 	& .extra {
-		align-items: flex-start;
-		p {
+		align-items: stretch;
+		& > div {
 			font-family: var(--font-family-roboto-regular);
 			font-size: 28px;
 			color: #ffffff;
+			display: flex;
+			align-items: center;
 
 			span {
 				margin-left: 35px;
+				flex: 1;
 			}
 			
 			a {

@@ -1,17 +1,25 @@
 import { FC, ReactNode } from 'react';
 import gradient from 'assets/illustrations/organisation/gradient.svg';
-import { ReactComponent as Instagram } from 'assets/illustrations/profile/instagram.svg';
-import { ReactComponent as Linkedin } from 'assets/illustrations/profile/linkedin.svg';
-import { ReactComponent as Twitter } from 'assets/illustrations/profile/twitter.svg';
 import { ReactComponent as Apple } from 'assets/illustrations/organisation/apple.svg';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { editOrg } from 'actions/organisation';
 import { RootState } from 'reducers';
 import styles from './index.module.scss';
+import OrgSocials from '../OrgSocials';
+import OrgSocialsEdit from '../OrgSocialsEdit';
 
-const Banner: FC = () => {
+interface IBannerProps {
+  orgId: number;
+}
+
+const Banner: FC<IBannerProps> = ({ orgId }) => {
   const isEditable = useSelector((state: RootState) => state.org.isEditable);
+  const organisations = useSelector((state: RootState) => state.org.orgs);
+
+  const [organisation] = organisations.filter(
+    org => orgId === org.organisationId
+  );
 
   return (
     <div className={styles.container}>
@@ -37,20 +45,20 @@ const Banner: FC = () => {
           </footer>
         </div>
         <div className={clsx(styles.center, styles.extra)}>
-          <p>
+          <div>
             Website:
             <span>
               <a href="http://#">Apple.com</a>
             </span>
-          </p>
-          <p>
+          </div>
+          <div>
             Socials:
-            <span>
-              <Instagram width={37} height={37} />
-              <Linkedin width={37} height={37} />
-              <Twitter width={37} height={37} />
-            </span>
-          </p>
+            {isEditable ? (
+              <OrgSocialsEdit orgId={orgId} />
+            ) : (
+              <OrgSocials orgId={orgId} />
+            )}
+          </div>
         </div>
       </div>
     </div>

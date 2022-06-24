@@ -18,7 +18,7 @@ const Landing: FC = () => {
     <div className={styles.container}>
       <BlurBlobs />
       <NavBar />
-      <Banner />
+      <Banner orgId={+orgId!} />
       <div className={styles.content}>
         <section className={styles.section}>
           <div className={styles.child}>
