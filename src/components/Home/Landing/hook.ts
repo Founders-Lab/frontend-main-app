@@ -31,7 +31,6 @@ const useGetOrganisationData = () => {
           );
 
           const json: IOrgApiResponse[] = await handleApiErrors(response);
-          console.trace(json);
           dispatch(fillOrgs(json));
         } catch (error) {
           console.log(error);

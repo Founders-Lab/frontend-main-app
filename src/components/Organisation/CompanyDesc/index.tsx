@@ -1,5 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable import/extensions */
 import { FC, useState, ChangeEvent, useCallback } from 'react';
 import Card from 'components/Card';
+import _debounce from 'lodash/debounce';
 import { useSelector } from 'react-redux';
 import { RootState } from 'reducers';
 import useUpdateCompanyDesc from './hook';
@@ -58,11 +61,16 @@ const CompanyDescCardEdit: FC<IDescriptionEdit> = ({ description, orgId }) => {
   const updateCompanyDescription = useUpdateCompanyDesc(orgId);
 
   const handleDebounceFn = (d: string) => {
+    if (d.trim().length === 0) return;
     updateCompanyDescription(d);
   };
 
-  const handleDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
+  const debounceFn: any = useCallback(_debounce(handleDebounceFn, 1000), []);
+
+  const handleDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setDesc(e.target.value);
+    debounceFn(e.target.value);
+  };
 
   return (
     <Card className={styles['description--edit']}>
