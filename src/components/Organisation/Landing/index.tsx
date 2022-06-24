@@ -7,6 +7,7 @@ import CompanyDesc from '../CompanyDesc';
 import Banner from '../Banner';
 import CreatedBy from '../CreatedBy';
 import styles from './index.module.scss';
+import WhitePaper from '../WhitePaper';
 
 const Landing: FC = () => {
   const { orgId } = useParams();
@@ -22,13 +23,13 @@ const Landing: FC = () => {
         <section className={styles.section}>
           <div className={styles.child}>
             <p>Company Description</p>
-            <div>
+            <div className={styles.height}>
               <CompanyDesc orgId={+orgId!} />
             </div>
           </div>
           <div className={styles.child}>
             <p>Profile Created By</p>
-            <div>
+            <div className={styles.height}>
               <CreatedBy />
             </div>
           </div>
@@ -36,9 +37,7 @@ const Landing: FC = () => {
         <section className={styles.section}>
           <div className={styles.child}>
             <p className={styles.whitePaper}>White Paper</p>
-            <a href="http://#">
-              https://breath.example.com/brother/action.html?basketball=bridge&branch=arm
-            </a>
+            <WhitePaper orgId={+orgId!} />
           </div>
         </section>
       </div>

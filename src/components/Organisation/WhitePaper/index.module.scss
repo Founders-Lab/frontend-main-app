@@ -1,0 +1,31 @@
+.whitePaper {
+	& a {
+			color: white;
+			font-family: var(--font-family-roboto-regular);
+			font-size: 16px;
+			padding-bottom: 6px;
+			border-bottom: 1px solid white;
+	}
+}
+.whitePaper--edit {
+	z-index: 2;
+	padding: 40px 27px;
+	max-width: 70%;
+
+	background: rgba(60, 60, 70, 0.5);
+  border: 0.7px solid #141414;
+  border-radius: 10.4px;
+
+	input {
+		color: white;
+		font-family: var(--font-family-roboto-regular);
+		font-size: 16px;
+		padding-bottom: 6px;
+		border-bottom: 1px solid white;
+		background-color: transparent;
+		border: none;
+
+		height: 100%;
+		width: 100%;
+	}
+}
