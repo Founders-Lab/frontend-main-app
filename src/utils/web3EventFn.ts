@@ -1,3 +1,4 @@
+import config from 'config';
 import { getAccessToken } from './authFn';
 import decodeToken from './decodeToken';
 import { revokeAccess } from './handleUnAuthorization';
@@ -6,7 +7,7 @@ export const handleChainChanged = (chainId: any) => {
   console.log('chain changed');
   console.log(chainId);
 
-  if (chainId !== '0x89') {
+  if (chainId !== config.chainId) {
     // Before reloading, move the user to the login page first because
     // if user rejects the metamask auth then they'll remain on the same
     // page. So, to avoid this case.

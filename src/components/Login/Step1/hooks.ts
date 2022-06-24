@@ -27,7 +27,10 @@ const useMetamaskLogin = () => {
 
     try {
       const provider = detectMetamask();
-      const { errorMessage } = await handleSwitchChange(provider, '0x89');
+      const { errorMessage } = await handleSwitchChange(
+        provider,
+        config.chainId
+      );
       if (errorMessage === 'Chain not present') {
         await handleAddPolygonChain(provider);
       }

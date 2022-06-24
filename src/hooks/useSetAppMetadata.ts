@@ -1,6 +1,7 @@
 // @ts-ignore
 import WalletConnectProvider from '@walletconnect/web3-provider/dist/umd/index.min.js';
 import { setWalletConnectProvider } from 'actions/app';
+import config from 'config';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -32,8 +33,8 @@ const useSetAppMetadata = () => {
         });
         console.log(chainId);
 
-        if (chainId !== '0x89') {
-          handleSwitchChange(window.ethereum, '0x89');
+        if (chainId !== config.chainId) {
+          handleSwitchChange(window.ethereum, config.chainId);
         }
       })();
     }
