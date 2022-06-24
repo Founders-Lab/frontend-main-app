@@ -79,13 +79,14 @@
 	justify-content: center;
 	align-items: center;
 }
+
 .btnCont {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
 	.btn {
-		min-width: 282px;
+		width: 282px;
 		padding: 14px 40px;
 		color: white;
 		cursor: pointer;
@@ -98,6 +99,7 @@
 		font-size: 24px;
 		font-weight: 400;
 		text-align: center;
+		text-transform: capitalize;
 	
 		background: rgba(255,255,255, 0.3);
 		background: linear-gradient(126.59deg, rgba(255,255,255,0.12) 12.11%, rgba(255,255,255,0.03) 73.08%);

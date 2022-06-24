@@ -2,13 +2,16 @@ import BlurBlobs from 'components/BlurBlobs';
 import NavBar from 'components/NavBar';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import Card from 'components/Card';
+import useGetOrganisationData from 'components/Home/Landing/hook';
+import CompanyDesc from '../CompanyDesc';
 import Banner from '../Banner';
 import CreatedBy from '../CreatedBy';
 import styles from './index.module.scss';
 
 const Landing: FC = () => {
   const { orgId } = useParams();
+
+  useGetOrganisationData();
 
   return (
     <div className={styles.container}>
@@ -20,7 +23,7 @@ const Landing: FC = () => {
           <div className={styles.child}>
             <p>Company Description</p>
             <div>
-              <CompanyDesc />
+              <CompanyDesc orgId={+orgId!} />
             </div>
           </div>
           <div className={styles.child}>
@@ -40,25 +43,6 @@ const Landing: FC = () => {
         </section>
       </div>
     </div>
-  );
-};
-
-const CompanyDesc = () => {
-  return (
-    <Card className={styles.description}>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Magna eget est lorem
-        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Magna eget est lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua. Magna eget est lorem ipsum dolor sit amet. Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Magna eget est lorem ipsum
-        dolor sit amet.
-      </p>
-    </Card>
   );
 };
 

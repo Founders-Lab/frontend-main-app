@@ -1,5 +1,5 @@
 import { IOrganisation, IOrgApiResponse } from 'interfaces/organisation';
-import { CREATE_ORG, EDIT_ORG, FILL_ORG } from './types';
+import { CREATE_ORG, EDIT_ORG, FILL_ORGS, UPDATE_ORG } from './types';
 
 export const createOrg = (org: Partial<IOrganisation>) => ({
   type: CREATE_ORG,
@@ -11,7 +11,12 @@ export const editOrg = (isEditable: boolean) => ({
   isEditable,
 });
 
-export const fillOrg = (orgs: IOrgApiResponse[]) => ({
-  type: FILL_ORG,
+export const fillOrgs = (orgs: IOrgApiResponse[]) => ({
+  type: FILL_ORGS,
   orgs,
+});
+
+export const updateOrg = (org: Partial<IOrganisation>) => ({
+  type: UPDATE_ORG,
+  org,
 });

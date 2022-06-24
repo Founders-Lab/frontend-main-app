@@ -1,4 +1,4 @@
-import { fillOrg } from 'actions/organisation';
+import { fillOrgs } from 'actions/organisation';
 import config from 'config';
 import { IOrgApiResponse } from 'interfaces/organisation';
 import { useEffect } from 'react';
@@ -32,7 +32,7 @@ const useGetOrganisationData = () => {
 
           const json: IOrgApiResponse[] = await handleApiErrors(response);
           console.trace(json);
-          dispatch(fillOrg(json));
+          dispatch(fillOrgs(json));
         } catch (error) {
           console.log(error);
         }

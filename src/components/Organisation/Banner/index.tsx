@@ -1,13 +1,18 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import gradient from 'assets/illustrations/organisation/gradient.svg';
 import { ReactComponent as Instagram } from 'assets/illustrations/profile/instagram.svg';
 import { ReactComponent as Linkedin } from 'assets/illustrations/profile/linkedin.svg';
 import { ReactComponent as Twitter } from 'assets/illustrations/profile/twitter.svg';
 import { ReactComponent as Apple } from 'assets/illustrations/organisation/apple.svg';
 import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { editOrg } from 'actions/organisation';
+import { RootState } from 'reducers';
 import styles from './index.module.scss';
 
 const Banner: FC = () => {
+  const isEditable = useSelector((state: RootState) => state.org.isEditable);
+
   return (
     <div className={styles.container}>
       <div
@@ -24,7 +29,11 @@ const Banner: FC = () => {
             &quot;Think Different - But not Too Different&quot;
           </p>
           <footer className={styles.btnCont}>
-            <EditOrgButton />
+            {isEditable ? (
+              <OrgButton type="save">save</OrgButton>
+            ) : (
+              <OrgButton type="edit">Edit Organisation</OrgButton>
+            )}
           </footer>
         </div>
         <div className={clsx(styles.center, styles.extra)}>
@@ -48,8 +57,34 @@ const Banner: FC = () => {
   );
 };
 
-const EditOrgButton: FC = () => {
-  return <button className={styles.btn}>Edit Organisation</button>;
+interface IOrgButtonProps {
+  type: 'edit' | 'save';
+  children: ReactNode;
+}
+
+const OrgButton: FC<IOrgButtonProps> = ({ type, children }) => {
+  const dispatch = useDispatch();
+
+  const handleClickEdit = () => {
+    dispatch(editOrg(true));
+  };
+
+  const handleClickSave = () => {
+    dispatch(editOrg(false));
+  };
+
+  if (type === 'edit')
+    return (
+      <button className={styles.btn} onClick={handleClickEdit}>
+        {children}
+      </button>
+    );
+
+  return (
+    <button className={styles.btn} onClick={handleClickSave}>
+      {children}
+    </button>
+  );
 };
 
 export default Banner;
