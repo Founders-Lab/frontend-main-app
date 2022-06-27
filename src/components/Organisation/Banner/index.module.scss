@@ -29,6 +29,15 @@
 	}
 
 	& .info {
+		& > div.titleCont {
+			width: 260px;
+			height: 60px;
+			text-align: center;
+			color: #ffffff;
+			font-family: var(--font-family-asap-bold);
+			font-size: 41px;
+		}
+
 		& > p {
 			text-align: center;
 			color: #ffffff;
@@ -57,21 +66,22 @@
 
 	& .extra {
 		align-items: stretch;
-		& > div {
-			font-family: var(--font-family-roboto-regular);
-			font-size: 28px;
-			color: #ffffff;
+		min-width: 400px;
+
+		& > div.action {
 			display: flex;
+			justify-content: space-between;
 			align-items: center;
 
-			span {
-				margin-left: 35px;
-				flex: 1;
+			&:first-of-type {
+				margin-bottom: 16px;
 			}
-			
-			a {
-				color: #ffffff;
-			}
+
+
+			font-family: var(--font-family-roboto-regular);
+			font-weight: 400;
+			font-size: 28px;
+			color: #ffffff;
 		}
 	}
 }
@@ -110,5 +120,43 @@
 		-webkit-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.66);
 		-moz-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.66);
 		box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.66);
+	}
+}
+
+.webCont {
+	width: 260px;
+	height: 60px;
+	padding: 0 20px;
+
+  text-align: center;
+  outline: none;
+
+	& > a {
+		font-family: var(--font-family-roboto-regular);
+		font-weight: 400;
+		font-size: 28px;
+		color: #ffffff;
+	}
+}
+
+.edit {
+	background: rgba(60, 60, 70, 0.5);
+	border: 0.7px solid #141414;
+	border-radius: 10.4px;
+
+	& > input {
+		max-width: 100%;
+		background-color: transparent;
+		border: none;
+		text-align: center;
+		font-family: var(--font-family-roboto-semiBold);
+		font-weight: 400;
+		font-size: 28px;
+		color: #ffffff;
+	}
+
+	& > input.title {
+		font-family: var(--font-family-asap-bold);
+		font-size: 41px;
 	}
 }

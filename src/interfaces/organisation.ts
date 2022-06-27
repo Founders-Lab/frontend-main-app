@@ -3,6 +3,7 @@ export interface IOrganisation {
   name: string;
   description: string | null;
   email: string | null;
+  website: string;
   whitepaper: string | null;
   twitter: string | null;
   facebook: string | null;

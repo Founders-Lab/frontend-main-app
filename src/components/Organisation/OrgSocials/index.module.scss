@@ -1,11 +1,11 @@
 .org-socials-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 	height: 60px;
+	padding: 0 20px;
+	width: 260px;
 
   text-align: center;
   outline: none;
-  margin: 0 auto;
-  margin-top: 15px;
 }
