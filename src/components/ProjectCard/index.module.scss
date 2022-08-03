@@ -1,0 +1,59 @@
+.container {
+  height: 75%;
+  color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 32.97px;
+  margin-top: 35.72px;
+}
+.project-card {
+  width: 189.95px;
+  height: 242.75px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: white;
+  border: 0.7px solid rgb(211, 155, 255);
+  & header {
+    & .text--primary {
+      margin-top: 14px;
+      font-family: var(--font-family-roboto-flex);
+      font-size: 22px;
+    }
+
+    & .text--secondary {
+      font-family: var(--font-family-roboto-regular);
+      font-size: 16px;
+    }
+  }
+
+  & .text-content {
+    font-family: var(--font-family-roboto-flex);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  & footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .text-extra {
+      font-family: var(--font-family-roboto-medium);
+      font-size: 14px;
+    }
+
+    & .icon {
+      font-size: 22px;
+      cursor: pointer;
+    }
+  }
+}
+
+.project-card:last-of-type {
+  // margin-right: 0;
+}

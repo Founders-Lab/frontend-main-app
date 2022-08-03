@@ -5,15 +5,15 @@
   max-width: 350px;
   margin: 0 auto;
   margin-top: 18px;
-
+  
   & > svg {
     margin-right: 12px;
   }
 
-  & > span {
+  & > p {
     font-family: var(--font-family-roboto-flex);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     text-transform: capitalize;
     text-align: center;

@@ -3,16 +3,18 @@
 
   & > .profile-tab-title {
     font-family: var(--font-family-roboto-flex);
-    font-weight: 400;
-    font-size: 33px;
+    font-style: normal;
+font-weight: 400;
+font-size: 21px;
     color: #a5a5a5;
     cursor: pointer;
-    margin-right: 60px;
+    margin-right: 20px;
     z-index: 1;
 
     &--active {
+      font-style: normal;
       font-weight: 600;
-      font-size: 33px;
+      font-size: 21px;
       color: white;
     }
   }

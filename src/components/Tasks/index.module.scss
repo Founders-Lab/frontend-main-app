@@ -1,103 +1,60 @@
-@import '../../styles/mixins/scrollbar.scss';
+.container {
 
-.tasks-container {
-  margin-top: 50px;
-  height: 580px;
+  margin-top: 35.72px;
+  margin-bottom: 25px;
 
-  @include customScrollbar;
 }
-
-.task-card {
-  width: 90%;
-  height: 172px;
-
-  background: linear-gradient(
-    126.59deg,
-    rgba(255, 255, 255, 0.12) 12.11%,
-    rgba(255, 255, 255, 0.03) 73.08%
-  );
-
-  // box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(40px);
-  /* Note: backdrop-filter has minimal browser support */
-
-  border-radius: 20px;
-
-  // border: 1px solid #d39bff;
-  border: 0.5px solid #414141;
-
+.wrapper {
   display: flex;
   align-items: center;
-  padding: 10px 30px;
-  margin-bottom: 30px;
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    margin-left: 25px;
-    width: 85%;
-
-    .task-title {
-      font-family: var(--font-family-roboto-flex);
-      font-weight: 500;
-      font-size: 21.5px;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .content-container {
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-
-      .rating-container {
-        width: 70%;
-
-        & > h5 {
-          font-family: var(--font-family-roboto-flex);
-          font-weight: 400;
-          font-size: 16.7px;
-          color: white;
-          margin-bottom: 14px;
-        }
-
-        .rating-star {
-          color: #fbc579;
-        }
-      }
-
-      .price-container {
-        display: flex;
-        margin-right: 7%;
-
-        & > div {
-          width: 20px;
-          height: 20px;
-          background-color: #ec81a6;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-
-        & > span {
-          font-family: var(--font-family-roboto-flex);
-          font-weight: 500;
-          font-size: 15px;
-          color: white;
-        }
-      }
-
-      .profile-image-wrapper {
-        width: 45px;
-        height: 45px;
-        position: absolute;
-        right: 70px;
-        top: 65px;
-
-        & > img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
+  color: #fff;
+  padding: 5px;
+}
+.content {
+  width: 100%;
+  margin-left: 25px;
+  position: relative;
+  p {
+    font-size: 12px;
   }
+}
+.rating-star {
+  color: #fbc579;
+}
+.dot {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #a1a1e5;
+}
+.heading {
+  margin-left: 20%;
+  margin-bottom: 60px;
+}
+.catWrap {
+  border: 0.7px solid #e0b9ff;
+  border-radius: 20px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  .cat {
+    color: #e0b9ff;
+  }
+}
+.wrapContent {
+  padding: 5px;
+  margin-top: 10px;
+}
+.col {
+  
+  margin-right: 10px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 120px;
 }

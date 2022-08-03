@@ -2,59 +2,35 @@ import { FC } from 'react';
 import clsx from 'clsx';
 import { ReactComponent as DummyImage1 } from 'assets/illustrations/task/task-dummy-1.svg';
 import { ReactComponent as DummyImage2 } from 'assets/illustrations/task/task-dummy-2.svg';
+import { ReactComponent as BrandImage } from 'assets/images/metadata/brand-image.svg';
 import userImg from 'assets/images/profile/user-image.png';
+import { useSelector } from 'react-redux';
+import { RootState } from 'reducers';
+import Card from 'components/Card';
 import styles from './index.module.scss';
+import useFetchUserTasks from './hooks';
 
-const data = [
-  {
-    taskId: 1,
-    title: 'UI Design_Moodboard Creation',
-    organisation: 'Axie Infinity',
-    estimatedDifficulty: 5,
-    price: 100,
-    organisationImage: <DummyImage1 width={74} height={74} />,
-  },
-  {
-    taskId: 2,
-    title: 'UI Design_Moodboard Creation',
-    organisation: 'Axie Infinity',
-    estimatedDifficulty: 3,
-    price: 100,
-    organisationImage: <DummyImage2 width={74} height={74} />,
-  },
-  {
-    taskId: 3,
-    title: 'UI Design_Moodboard Creation',
-    organisation: 'Axie Infinity',
-    estimatedDifficulty: 1,
-    price: 100,
-    organisationImage: <DummyImage1 width={74} height={74} />,
-  },
-  {
-    taskId: 4,
-    title: 'UI Design_Moodboard Creation',
-    organisation: 'Axie Infinity',
-    estimatedDifficulty: 1,
-    price: 100,
-    organisationImage: <DummyImage1 width={74} height={74} />,
-  },
-];
-
-const Tasks: FC = () => {
-  return (
-    <div className={styles['tasks-container']}>
-      {data.map(d => (
-        <TaskCard
-          key={d.taskId}
-          title={d.title}
-          organisation={d.organisation}
-          estimatedDifficulty={d.estimatedDifficulty}
-          price={d.price}
-          organisationImage={d.organisationImage}
-        />
-      ))}
-    </div>
-  );
+const Tasks = () => {
+  const { profile } = useSelector((state: RootState) => state.profile);
+  const profileId = profile?.profileId ? profile.profileId : 0;
+  const { data } = useFetchUserTasks(profileId);
+  if (data) {
+    return (
+      <div className={styles['tasks-container']}>
+        {data?.data?.map((d: any) => (
+          <TaskCard
+            key={d.taskId}
+            title={d.title}
+            organisation={d.organisation}
+            estimatedDifficulty={d.estimatedDifficulty}
+            price={d.price}
+            organisationImage={d.organisationImage}
+          />
+        ))}
+      </div>
+    );
+  }
+  return null;
 };
 
 interface ITaskCard {
@@ -72,34 +48,45 @@ const TaskCard: FC<ITaskCard> = ({
   price,
   organisationImage,
 }) => {
+  const applyToTask = () => {};
   return (
-    <div className={styles['task-card']}>
-      <div>{organisationImage}</div>
-      <div className={styles['card-content']}>
-        <h3 className={styles['task-title']}>{title}</h3>
-        <div className={styles['content-container']}>
-          <div className={styles['rating-container']}>
-            <h5>{organisation}</h5>
-            <span>
-              {[...Array(estimatedDifficulty).keys()].map(n => (
-                <i
-                  key={n}
-                  className={clsx('material-icons', styles['rating-star'])}
-                >
-                  star
-                </i>
-              ))}
-            </span>
+    <div className={styles.container}>
+      <Card
+        className={styles['task-card']}
+        showTransparentBg
+        width="100%"
+        height="auto"
+      >
+        <div className={styles.wrapper}>
+          <div className={styles.content} style={{ width: '100px' }}>
+            <BrandImage width={95} height={95} />
           </div>
-          <div className={styles['price-container']}>
-            <div />
-            <span>{price} USDC</span>
+          <div className={styles.content} style={{ lineHeight: '2rem' }}>
+            <h4>{title}</h4>
+            <p>{organisation}</p>
+            {Array.from({ length: estimatedDifficulty }).map((_, index) => (
+              <i
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                className={clsx('material-icons', styles['rating-star'])}
+              >
+                star
+              </i>
+            ))}
           </div>
-          <div className={styles['profile-image-wrapper']}>
-            <img alt="user" src={userImg} />
+          <div className={styles.content} style={{ width: '200px' }}>
+            <p className={styles.dot} style={{ top: '1px', left: '-25px' }} />
+            <p>{price} USDC </p>
+          </div>
+          <div
+            className={styles.content}
+            style={{ width: '200px', cursor: 'pointer' }}
+            onClick={applyToTask}
+          >
+            Apply to task
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };

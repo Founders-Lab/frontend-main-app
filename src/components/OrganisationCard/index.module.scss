@@ -1,0 +1,30 @@
+.container {
+  height: 90%;
+  width: 650px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32.97px;
+  margin-top: 35.72px;
+  overflow-y: auto;
+  justify-content: flex-start;
+}
+.wrap {}
+.cardsContainer {
+  height: 221.21px;
+  width: 193.47px;
+  border: 0.43px solid #D39BFF;
+  margin-bottom: 44.2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  h3 {
+    font-size: 20.82px;
+  }
+  p {
+    font-size: 13.88px;
+  }
+}
