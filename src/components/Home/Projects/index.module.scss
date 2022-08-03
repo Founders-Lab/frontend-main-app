@@ -10,18 +10,18 @@
 
   & p {
     font-family: var(--font-family-roboto-medium);
-    font-size: 25px;
+    font-size: 21px;
   }
 
   & span {
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: underline;
   }
 }
 
 .projects-cont {
-  width: 880px;
-  padding: 65px;
+  width: 735px;
+  padding: 39px;
 
   display: flex;
   flex-direction: row;

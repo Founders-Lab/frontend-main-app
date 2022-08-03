@@ -7,6 +7,7 @@ import { getAccessToken } from 'utils/authFn';
 import getRandomString from 'utils/getRandomString';
 import ProjectCard from '../ProjectCard';
 import styles from './index.module.scss';
+import { castArray } from 'lodash';
 
 const Projects: FC = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Projects: FC = () => {
       </div>
       <div className={styles.border}>
         <Card className={styles['projects-cont']} showTransparentBg>
+          {data.map((project: any) => console.log(project))}
           {data.map((project: any) => (
             <ProjectCard
               key={getRandomString(5)}
@@ -46,6 +48,7 @@ const Projects: FC = () => {
               org={project.organisationName}
               description={project.flProjectDescription}
               numTasks={project.taskCount}
+              orgImage={project.organisationImage}
               location="home"
               width=""
             />

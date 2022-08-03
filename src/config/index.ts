@@ -11,7 +11,7 @@ interface Environment {
 
 const configs: Environment = {
   local: {
-    ApiBaseUrl: 'http://localhost:3001',
+    ApiBaseUrl: 'http://localhost:3001/local',
     AppDomain: 'http://localhost:3000',
     chainId: '0x13881',
     explorerURL: 'https://mumbai.polygonscan.com/',

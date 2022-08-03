@@ -25,8 +25,8 @@ const TaskCard = (props: any) => {
           height={height}
           borderType={'0.7px solid #e0b9ff'}
         >
-          <div className={styles.wrapper} style={{ height: '120px' }}>
-            <div className={styles.content} style={{ lineHeight: '2rem' }}>
+          <div className={styles.wrapper}>
+            <div className={styles.content}>
               <div className={styles.catWrap}>
                 <p className={styles.cat}>
                   {data.flProjectCategory.categoryName}
@@ -47,21 +47,22 @@ const TaskCard = (props: any) => {
                 )}
               </div>
             </div>
-            <div className={styles.content} style={{ width: '150px' }}>
+            <div className={styles.content}>
               <div className={styles.col}>
                 <div style={{ cursor: 'pointer' }} onClick={applyToTask}>
                   Apply to task
                 </div>
-
-                <div
-                  className={styles.dot}
-                  style={{
-                    background: '#FFB9C2',
-                    top: '90px',
-                    left: '25px',
-                  }}
-                ></div>
-                <p>{data.price} USDC </p>
+                <div className={styles.row}>
+                  <div
+                    className={styles.dot}
+                    style={{
+                      background: '#FFB9C2',
+                      top: '88px',
+                      left: '30px',
+                    }}
+                  ></div>
+                  <p>{data.price} USDC </p>
+                </div>
               </div>
             </div>
           </div>
@@ -80,7 +81,15 @@ const TaskCard = (props: any) => {
       <>
         <div className={styles.wrapper}>
           <div className={styles.content} style={{ width: '100px' }}>
-            <BrandImage width={95} height={95} />
+            {data.flProjectCategory.flProject.organisation.profileImage ? (
+              <img
+                src={data.flProjectCategory.flProject.organisation.profileImage}
+                className={styles.img}
+                alt="organisation Image"
+              />
+            ) : (
+              <BrandImage width={95} height={95} />
+            )}
           </div>
           <div className={styles.content} style={{ lineHeight: '2rem' }}>
             <h4>{data.name}</h4>

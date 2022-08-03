@@ -22,8 +22,8 @@ const Tasks: FC<any> = (props: any) => {
           <TaskCard
             key={task.id}
             data={task}
-            width={'380px'}
-            height={'155px'}
+            width={'365px'}
+            height={'130px'}
             location="home"
           />
         ))}

@@ -60,8 +60,8 @@ const WalletBalButton = () => {
               styles['text--align']
             )}
           >
-            Hide balance
-            <VisibilityIcon width={15} height={15} />
+            Profile Balance
+            {/* <VisibilityIcon width={15} height={15} /> TODO - toggle visibility */}
           </span>
         </div>
       </div>

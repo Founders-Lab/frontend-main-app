@@ -33,22 +33,13 @@ const ProfileButton: FC = () => {
             styles['text--clickable']
           )}
         >
-          <div
-          //	TODO - Implement center ellipsis for text overflow
-          >
-            <span>
-              {user?.walletId?.slice(0, 6)}...
-              {user?.walletId?.slice(
-                // eslint-disable-next-line no-unsafe-optional-chaining
-                user?.walletId.length - 6,
-                user?.walletId.length
-              )}
-            </span>
+          <div          >
+            <span>{user?.walletId?.slice(0, 6)}...{user?.walletId?.slice(user?.walletId.length - 6, user?.walletId.length)}</span>
           </div>
-          <span className="material-icons">keyboard_arrow_down</span>
+          {/* <span className="material-icons">keyboard_arrow_down</span> No USE now */}
         </div>
         <div className={clsx(styles['text--secondary'], styles['text--align'])}>
-          <span>On-Chain Wallet</span>
+          <span>My Wallet</span>
           <WalletConnIndicator />
         </div>
       </div>

@@ -15,7 +15,6 @@ const AllTasks: FC = () => {
   if (isFetching) return <p>Loading...</p>;
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error...</div>;
-
   return (
     <div>
       <div className={styles.container}>

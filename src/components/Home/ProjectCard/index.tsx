@@ -14,6 +14,7 @@ interface ProjectCardProps {
   projectId: string;
   location?: string;
   width?: string;
+  orgImage?: string;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({
@@ -24,8 +25,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
   projectId,
   location,
   width,
+  orgImage,
 }) => {
   const navigate = useNavigate();
+  console.log(orgImage);
 
   if (location === 'home') {
     return (
@@ -39,11 +42,15 @@ const ProjectCard: FC<ProjectCardProps> = ({
           className={styles['project-card']}
           showTransparentBg
           width={width}
-          marginRight="50px"
+          marginRight="44px"
         >
           <>
             <header>
-              <BrandImage width={70} height={70} />
+              {orgImage ? (
+                <img src={orgImage} className={styles.orgImage}></img>
+              ) : (
+                <BrandImage width={70} height={70} />
+              )}
               <h3 className={styles['text--primary']}>
                 {projectName?.length > 13
                   ? `${projectName?.substring(0, 13)}...`
@@ -52,8 +59,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
               <span className={styles['text--secondary']}>{org}</span>
             </header>
             <p className={styles['text-content']}>
-              {description?.length > 121
-                ? `${description?.substring(0, 121)}...`
+              {description?.length > 90
+                ? `${description?.substring(0, 90)}...`
                 : description}
             </p>
 
@@ -76,7 +83,11 @@ const ProjectCard: FC<ProjectCardProps> = ({
       <Card className={styles['project-card']} showTransparentBg width={width}>
         <>
           <header>
-            <BrandImage width={70} height={70} />
+            {orgImage ? (
+              <img src={orgImage} className={styles.orgImage}></img>
+            ) : (
+              <BrandImage width={70} height={70} />
+            )}
             <h3 className={styles['text--primary']}>
               {projectName?.length > 16
                 ? `${projectName?.substring(0, 16)}...`
@@ -85,8 +96,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
             <span className={styles['text--secondary']}>{org}</span>
           </header>
           <p className={styles['text-content']}>
-            {description?.length > 121
-              ? `${description?.substring(0, 121)}...`
+            {description?.length > 90
+              ? `${description?.substring(0, 90)}...`
               : description}
           </p>
 
